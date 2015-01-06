@@ -48,7 +48,18 @@ public class Clev extends Player {
 			Clev = spriteSheet.getSubImage(0, 2);
 
 		}
+		
+		if(Keyboard.isKeyDown(Keyboard.KEY_P)) {
+			savePlayer();
+		}
 
+	}
+	
+	public void savePlayer() {
+		// SAVE PLAYER POSITION
+		x = Integer.toString(PlayerX);
+		y = Integer.toString(PlayerY);
+		savePlayer.savePlayer(x, y);
 	}
 
 }

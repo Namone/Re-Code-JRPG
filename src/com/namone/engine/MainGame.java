@@ -22,6 +22,7 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.newdawn.slick.Graphics;
 
+import com.namone.fileManagement.SaveFile;
 import com.namone.gameStateManager.GameStateManager;
 import com.namone.player.Clev;
 import com.namone.player.Player;
@@ -49,6 +50,9 @@ public class MainGame {
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println(Display.getWidth());
+		System.out.println(Display.getHeight());
 
 		// TODO ADD GRAPHICS CONTEXT & GRAPHICS OBJECT (FOR TEXT DRAWING, ETC)
 
@@ -110,7 +114,6 @@ public class MainGame {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_TEXTURE_2D);
 		glMatrixMode(GL_PROJECTION);
-
 		glMatrixMode(GL_MODELVIEW);
 		glDisable(GL_DEPTH_TEST);
 

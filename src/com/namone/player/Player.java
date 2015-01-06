@@ -11,6 +11,8 @@ import org.newdawn.slick.geom.*;
 
 import com.namone.checkDistance.DistanceDetect;
 import com.namone.enemies.Enemy;
+import com.namone.fileManagement.LoadFile;
+import com.namone.fileManagement.SaveFile;
 
 public class Player {
 
@@ -19,19 +21,30 @@ public class Player {
 	private DistanceDetect distanceDetect = new DistanceDetect();
 	// IS THE ENEMY IN RANGE
 	protected boolean inRange = true;
-	public float PlayerX = Display.getWidth() / 2;
-	public float PlayerY = Display.getHeight() / 2;
+	// PLACE-HOLDER VALUES !BUG HERE!
+	public int PlayerX = Display.getWidth() / 2;
+	public int PlayerY = Display.getHeight() / 2;
 	protected final int PLAYER_W = 32;
 	protected final int PLAYER_H = 32;
 	public Shape hitbox;
-
+	public String x;
+	public String y;
+	// TO LOAD LOCATION
+	private LoadFile load = new LoadFile();
+	
 	// FOR ANIMATIONS - TODO
 	protected int frame = 0;
 
+	// FOR SAVING
+	SaveFile savePlayer = new SaveFile();
+	
 	private Image textureAtlas;
 	protected SpriteSheet spriteSheet;
 
 	public Player() {
+		load.loadPlayer();
+		PlayerX = load.getPlayerX();
+		PlayerY = load.getPlayerY();
 		// SET UP PLAYER SPRITE-SHEET
 		try {
 			textureAtlas = new Image("resources/playerSpritesheet.png");
@@ -40,7 +53,7 @@ public class Player {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		spriteSheet = new SpriteSheet(textureAtlas, PLAYER_W, PLAYER_H, 0, 0);
+		spriteSheet = new SpriteSheet(textureAtlas, PLAYER_W, PLAYER_H, 0, 0);	
 
 	}
 

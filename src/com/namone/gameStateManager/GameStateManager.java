@@ -15,7 +15,7 @@ public class GameStateManager {
 	private ArrayList<GameState> gameStates = new ArrayList<GameState>();
 
 	public void GameState(GameStateManager gsm) {
-		currentState = MENU; // DEFAULT STATE IS MENU - CURRENTLY SET TO
+		currentState = RUN_GAME; // DEFAULT STATE IS MENU - CURRENTLY SET TO
 									// GAME
 
 		gameStates.add(new Menu(gsm)); // ADD MENU OBJECT AT POSITION 0 OF ARRAY
